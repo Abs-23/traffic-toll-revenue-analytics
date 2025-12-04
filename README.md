@@ -20,8 +20,6 @@ The main page includes:
 - An **annual revenue column chart** that compares base vs weekend pricing scenario by year, making revenue impacts easy to interpret.  
 - **Weekday vs weekend charts** that compare average daily traffic and revenue, helping to justify differentiated tolling strategies.
 
-The screenshot above comes directly from this report to give an immediate visual impression of the project when someone opens the repository.
-
 ---
 
 ## 2. Problem Overview
@@ -160,3 +158,49 @@ The exact uplift depends on the data and can be recomputed by running the notebo
 
 ## 6. Repository Structure
 
+├─ data/
+│ ├─ Metro_Interstate_Traffic_Volume.csv # Original hourly traffic and weather data
+│ └─ traffic_daily_export.csv # Daily model-ready export used by Power BI
+├─ notebooks/
+│ └─ traffic_toll_revenue_forecasting.py # Databricks notebook with medallion, modeling, and scenarios
+├─ reports/
+│ ├─ Traffic_Toll_Revenue_Scenarios.pbix # Power BI report
+│ └─ traffic_toll_revenue_dashboard.png # Screenshot used in this README
+└─ README.md # Project documentation
+
+
+---
+
+## 7. How to Run
+
+### 7.1 Databricks
+
+1. Create a catalog and the `raw`, `silver`, and `gold` schemas in Unity Catalog.  
+2. Create a volume and upload `Metro_Interstate_Traffic_Volume.csv` from the `data` folder.  
+3. Import `notebooks/traffic_toll_revenue_forecasting.py` into Databricks.  
+4. Attach a cluster and run the notebook to:
+   - Ingest raw data into the bronze table.  
+   - Build the silver hourly and gold daily tables.  
+   - Train and evaluate the forecasting model.  
+   - Generate the daily export used by Power BI, if needed.
+
+### 7.2 Power BI
+
+1. Open `reports/Traffic_Toll_Revenue_Scenarios.pbix` in Power BI Desktop.  
+2. Update the data source to point to your local `traffic_daily_export.csv` if the path has changed.  
+3. Interact with the slicers and visuals to explore:
+   - Daily actual vs forecast traffic.  
+   - Annual base vs scenario revenue.  
+   - Weekday vs weekend differences.
+
+---
+
+## 8. Intended Audience
+
+This project is aimed at:
+
+- **Traffic and revenue analysts** who want a concrete example of how to connect traffic forecasting with toll pricing scenarios.  
+- **Data scientists and data engineers** who want to see a concise medallion architecture on Databricks feeding a BI tool.  
+- **Hiring managers** who want evidence of end‑to‑end ownership, from raw data and modeling decisions to revenue‑focused scenario analysis and executive‑style reporting.
+
+It is not a production‑grade Traffic and Revenue model. It is a transparent, reproducible case study that demonstrates the full workflow and highlights the trade‑offs involved in toll pricing decisions.
