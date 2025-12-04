@@ -1,6 +1,7 @@
 # Traffic and Toll Revenue Forecasting – Databricks and Power BI
 
-![Traffic and Toll Revenue Dashboard](reports/traffic_toll_revenue_dashboard.png)
+<img width="1279" height="729" alt="Traffic   Toll Revenue Scenario" src="https://github.com/user-attachments/assets/e80be25b-04ec-4f14-8d08-6e8f442cd8e4" />
+
 
 This project uses a Databricks medallion architecture, Python, and Power BI to forecast daily highway traffic and evaluate toll pricing strategies, including a simple demand‑response (elasticity) assumption.
 
