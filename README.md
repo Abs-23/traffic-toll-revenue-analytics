@@ -169,7 +169,7 @@ The exact uplift depends on the data and can be recomputed by running the notebo
 │ └─ traffic_toll_revenue_dashboard.png # Screenshot used in this README
 └─ README.md # Project documentation
 
-'''
+```
 
 ---
 
