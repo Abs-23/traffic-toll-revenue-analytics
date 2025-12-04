@@ -159,6 +159,7 @@ The exact uplift depends on the data and can be recomputed by running the notebo
 
 ## 6. Repository Structure
 
+```
 ├─ data/
 │ ├─ Metro_Interstate_Traffic_Volume.csv # Original hourly traffic and weather data
 │ └─ traffic_daily_export.csv # Daily model-ready export used by Power BI
